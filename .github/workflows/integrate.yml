@@ -1,0 +1,27 @@
+
+name: Node Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@main
+      - name: Setup enviroment
+        uses: actions/setup-node@main
+        with:
+          node-version: 12
+      - name: Instal node
+        run: npm ci
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
+    
