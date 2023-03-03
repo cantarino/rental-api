@@ -1,11 +1,11 @@
-import { AppError } from "../shared/errors";
+import errors from "../shared/errors";
 import { Driver } from "./driver";
 import { DriverFilter } from "./driverFilter";
-import { DriverRepository } from "./repository";
+import { IDriverRepository } from "./repository";
 
 export class DriverService {
-  private repository: DriverRepository;
-  constructor(repository: DriverRepository) {
+  private repository: IDriverRepository;
+  constructor(repository: IDriverRepository) {
     this.repository = repository;
   }
 
@@ -23,14 +23,14 @@ export class DriverService {
 
   public update(id: number, driver: Driver): Driver | undefined {
     const item = this.repository.get(id);
-    if (!item) throw new AppError("item not found");
+    if (!item) throw errors.itemNotFound;
 
     return this.repository.update(id, driver);
   }
 
   public delete(id: number): boolean {
     const item = this.repository.get(id);
-    if (!item) throw new AppError("item not found");
+    if (!item) throw errors.itemNotFound;
 
     this.repository.delete(id);
     return true;

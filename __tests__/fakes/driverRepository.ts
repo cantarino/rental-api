@@ -1,5 +1,5 @@
-import { Driver } from "./driver";
-import { DriverFilter } from "./driverFilter";
+import { Driver } from "../../src/app/driver/driver";
+import { DriverFilter } from "../../src/app/driver/driverFilter";
 
 export interface IDriverRepository {
   get(id: number): Driver | undefined;
@@ -8,8 +8,8 @@ export interface IDriverRepository {
   update(id: number, driver: Driver): Driver;
   delete(id: number): void;
 }
-export class DriverRepository implements IDriverRepository {
-  private drivers: Driver[];
+export class FakeDriverRepository implements IDriverRepository {
+  drivers: Driver[];
   constructor() {
     this.drivers = [];
   }
