@@ -23,14 +23,14 @@ export class DriverService {
 
   public update(id: number, driver: Driver): Driver | undefined {
     const item = this.repository.get(id);
-    if (!item) throw errors.itemNotFound;
+    if (!item) throw errors.driverNotFound;
 
     return this.repository.update(id, driver);
   }
 
   public delete(id: number): boolean {
     const item = this.repository.get(id);
-    if (!item) throw errors.itemNotFound;
+    if (!item) throw errors.driverNotFound;
 
     this.repository.delete(id);
     return true;

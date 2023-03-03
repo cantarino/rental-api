@@ -59,7 +59,7 @@ describe("update car", () => {
     try {
       driverService.update(driverId + 1, driver);
     } catch (e) {
-      expect(e).toBe(errors.itemNotFound);
+      expect(e).toBe(errors.driverNotFound);
     }
   });
 });
@@ -74,7 +74,7 @@ describe("delete driver", () => {
     try {
       driverService.delete(driverId + 1);
     } catch (e) {
-      expect(e).toBe(errors.itemNotFound);
+      expect(e).toBe(errors.driverNotFound);
     }
   });
 });

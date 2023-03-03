@@ -1,13 +1,7 @@
 import { Driver } from "../../src/app/driver/driver";
 import { DriverFilter } from "../../src/app/driver/driverFilter";
+import { IDriverRepository } from "../../src/app/driver/repository";
 
-export interface IDriverRepository {
-  get(id: number): Driver | undefined;
-  getMany(filter: DriverFilter): Driver[];
-  create(driver: Driver): Driver;
-  update(id: number, driver: Driver): Driver;
-  delete(id: number): void;
-}
 export class FakeDriverRepository implements IDriverRepository {
   drivers: Driver[];
   constructor() {

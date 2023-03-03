@@ -63,7 +63,7 @@ describe("update car", () => {
     try {
       carService.update(carId + 1, car);
     } catch (e) {
-      expect(e).toBe(errors.itemNotFound);
+      expect(e).toBe(errors.carNotFound);
     }
   });
 });
@@ -78,7 +78,7 @@ describe("delete car", () => {
     try {
       carService.delete(carId + 1);
     } catch (e) {
-      expect(e).toBe(errors.itemNotFound);
+      expect(e).toBe(errors.carNotFound);
     }
   });
 });

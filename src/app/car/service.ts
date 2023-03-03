@@ -23,14 +23,14 @@ export class CarService {
 
   public update(id: number, car: Car): Car | undefined {
     const item = this.repository.get(id);
-    if (!item) throw errors.itemNotFound;
+    if (!item) throw errors.carNotFound;
 
     return this.repository.update(id, car);
   }
 
   public delete(id: number): boolean {
     const item = this.repository.get(id);
-    if (!item) throw errors.itemNotFound;
+    if (!item) throw errors.carNotFound;
 
     this.repository.delete(id);
     return true;
