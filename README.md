@@ -1,9 +1,5 @@
-# Largest Sum Contiguous Subarray 
-An API implemented using Apollo Server. It solves the Largest sum contiguous subarray problem.
-
-## Description
-
-The largest sum contiguous subarray is a problem solved using a dynamic programming method where the task is to find a contiguous subarray with the largest sum, given a list of n elements. The API is designed to solve such problem using Kadane's algorithm, the optimal solution for this problem in linear time.
+# Rental API
+An API implemented using Apollo Server. It emulates an API for car rental.
 ## Getting started
 
 ### Dependencies
