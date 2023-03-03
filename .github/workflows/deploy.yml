@@ -16,7 +16,7 @@ jobs:
       - name: Build and push image
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
-          image: christiancantarino/maxsum
+          image: christiancantarino/rentalapi
           registry: docker.io
           tag: latest
           username: ${{ secrets.DOCKER_USERNAME }}

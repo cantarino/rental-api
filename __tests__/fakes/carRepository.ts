@@ -1,15 +1,9 @@
-import { Car } from "./car";
-import { CarFilter } from "./carFilter";
+import { Car } from "../../src/app/car/car";
+import { CarFilter } from "../../src/app/car/carFilter";
+import { ICarRepository } from "../../src/app/car/repository";
 
-export interface ICarRepository {
-  get(id: number): Car | undefined;
-  getMany(filter: CarFilter): Car[];
-  create(car: Car): Car;
-  update(id: number, car: Car): Car;
-  delete(id: number): void;
-}
-export class CarRepository implements ICarRepository {
-  private cars: Car[];
+export class FakeCarRepository implements ICarRepository {
+  cars: Car[];
   constructor() {
     this.cars = [];
   }
