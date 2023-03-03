@@ -20,10 +20,6 @@ The largest sum contiguous subarray is a problem solved using a dynamic programm
 #### Running local with Docker
 1. Clone down this repository 
 2. On the main folder, run `docker-compose up`, this will build and run a docker image of the project using the dockerfile configurations.
-
-#### Running local with Docker Hub image
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You may also run this project pulling the image from docker hub with `docker pull christiancantarino/maxsum`.After pulling the image, run it using the command: `docker run -p 8080:8080 christiancantarino/maxsum`
-
 ### Testing
 To run the implemented tests, after installing the dependencies with `npm install`, run `npm test` on the main folder.
 
@@ -31,14 +27,16 @@ To run the implemented tests, after installing the dependencies with `npm instal
 To see the GraphQL queries and run them on your own with Apollo Server:
 
 `localhost:8080/graphql`
-### Requesting MaxSum
+### Making a requisition
   Send a requisition to `localhost:8080/graphql` with method `POST` using the following body example:
   ```
-  "query": "mutation {
-    maxsum(list: [-2, 3, 5, -1, 4, -5]) {
-        sum
-        positions
-    }
+  "query": "query {
+    cars {
+    brand
+    color
+    id
+    licensePlate
+  }
 }"
   ```
   
@@ -46,38 +44,14 @@ To see the GraphQL queries and run them on your own with Apollo Server:
   ```
   {
     "data": {
-        "maxsum": {
-            "sum": 11,
-            "positions": [
-                2,
-                3,
-                4,
-                5
-            ]
-        }
+        "cars": [
+            {
+                "brand": "BMW",
+                "color": "red",
+                "id": 1,
+                "licensePlate": "BBBB"
+            }
+        ]
     }
 }
   ```
-## Project Structure:
-
-```
-├── src
-│   └──app  
-│   │   └──maxSum  
-│   │   │   └──data.ts  \\Service containing Kadane's Largest sum contiguous subarray solution
-│   │   │   └──resolver.ts  \\Apollo server resolver with maxSum mutation definition
-│   │   │   └──response.ts  \\GraphQL ObjectType for response definition
-│   │   └──schema.ts  \\GraphQL Schema Configurations
-│   │   └──app.ts    \\Main server configuration file
-│   └──index.ts    \\Main server file
-└──test
-│   └──integration
-│   │    └──maxSumResolver.test.ts  \\Aplication's resolver integration test
-│   └──unit
-│   │    └──maxSum.test.ts  \\Kadane's algorithm unit test
-├── docker-compose.yaml    \\Docker-compose configurations
-├── Dockerfile    \\Dockerfile configurations
-├── jest.config.ts  \\Jest configurations file
-├── package.json    \\Project configurations    
-├── tsconfig.json   \\Typescript specific configurations        
-```
